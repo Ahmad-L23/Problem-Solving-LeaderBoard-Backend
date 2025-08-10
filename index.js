@@ -23,7 +23,7 @@ const studentSchema = new mongoose.Schema({
 const Student = mongoose.model('Student', studentSchema);
 
 // Get all students
-app.get('/students', async (req, res) => {
+app.get('https://problem-solving-leaderboard-backend-1.onrender.com/students', async (req, res) => {
   try {
     const students = await Student.find();
     res.json(students);
@@ -33,7 +33,7 @@ app.get('/students', async (req, res) => {
 });
 
 // Add new student or update existing one
-app.post('/students', async (req, res) => {
+app.post('https://problem-solving-leaderboard-backend-1.onrender.com/students', async (req, res) => {
   const { id, name, points } = req.body;
   try {
     if (id) {
@@ -58,7 +58,7 @@ app.post('/students', async (req, res) => {
 });
 
 // Delete a student
-app.delete('/students/:id', async (req, res) => {
+app.delete('https://problem-solving-leaderboard-backend-1.onrender.com/students/:id', async (req, res) => {
   try {
     await Student.findByIdAndDelete(req.params.id);
     res.json({ message: 'Deleted' });
